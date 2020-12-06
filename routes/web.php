@@ -27,8 +27,14 @@ Route::post('/clientes/registrar','ClienteControlles@store');
 Route::put('/clientes/actualizar','ClienteControlles@update');
 Route::post('/clientes/eliminar','ClienteControlles@destroy');
 
+
 ////////////////////////////////////////////////(PRODUCTOS)
 Route::get('productos','ProductoController@index');
+////////////////////////////////////////////////////
+Route::get('producto','ProductoController@index2');
+Route::get('getproduc','ProductoController@getProduc');
+/////////////////////////////////////////////////////
+Route::get('getpro','ProductoController@getPro');
 Route::post('/productos/registrar','ProductoController@store');
 Route::put('/productos/actualizar','ProductoController@update');
 Route::post('/productos/eliminar','ProductoController@destroy');
@@ -65,6 +71,13 @@ Route::post('/insumos/eliminar','InsumoController@destroy');
 ////////////////////////////////////////////////(EMPLEADOS)
 
 Route::get('empleados','EmpleadoController@index');
+Route::get('getemp','EmpleadoController@getEmp');
 Route::post('/empleados/registrar','EmpleadoController@store');
 Route::put('/empleados/actualizar','EmpleadoController@update');
 Route::post('/empleados/eliminar','EmpleadoController@destroy');
+
+
+/////////////////////////////////////////////////////(PEDIDOS)
+
+Route::get('pedido','PedidoController@index');
+Route::post('/pedido/registrar','PedidoController@store');

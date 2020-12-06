@@ -38,6 +38,11 @@
 
 </template>
 
+<template v-if="menu==6">
+
+<pedido></pedido>
+
+</template>
 
 <template v-if="menu==8">
 

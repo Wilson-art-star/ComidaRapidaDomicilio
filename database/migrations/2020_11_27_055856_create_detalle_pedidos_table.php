@@ -19,7 +19,7 @@ class CreateDetallePedidosTable extends Migration
             $table->integer('id_pedido')->unsigned();
             $table->integer('cantidad');
             $table->integer('precio');
-            $table->string('estado');
+         
 
             $table->foreign('id_pedido')->references('id')->on('pedidos');
             $table->foreign('id_producto')->references('id')->on('productos');

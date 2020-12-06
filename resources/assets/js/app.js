@@ -23,10 +23,15 @@ Vue.component('cargo', require('./components/Cargo.vue'));
 Vue.component('tipoinsumo', require('./components/TipoInsumo.vue'));
 Vue.component('entradainventario', require('./components/EntradaInventario.vue'));
 
-////////////////(TABLAS FORANEAS (1))
+////////////////(TABLAS FORANEAS
 
 Vue.component('insumo', require('./components/Insumo.vue'));
 Vue.component('empleado', require('./components/Empleado.vue'));
+
+///////////////(DETALLES MAESTRO)
+
+Vue.component('pedido', require('./components/Pedido.vue'));
+
 
 const app = new Vue({
     el: '#app',

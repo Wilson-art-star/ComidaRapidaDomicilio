@@ -69,7 +69,15 @@ class EmpleadoController extends Controller
     public function destroy(Request $request)
     {
         //
-        $clientes = Empleados::findOrFail($request->id);
-        $clientes->delete();
+        $empleados = Empleados::findOrFail($request->id);
+        $empleados->delete();
+    }
+
+    public function getEmp(Request $request){
+        $empleados= Empleados::orderBy('nombre','asc')->get();
+
+        return[
+            'emp'=>$empleados
+        ];
     }
 }
