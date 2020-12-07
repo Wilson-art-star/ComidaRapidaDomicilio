@@ -70,4 +70,12 @@ class ClienteControlles extends Controller
         $clientes = Clientes::findOrFail($request->id);
         $clientes->delete();
     }
+
+    public function getCli(Request $request){
+        $clientes= Clientes::orderBy('nombre','asc')->get();
+
+        return[
+            'cli'=>$clientes
+        ];
+    }
 }

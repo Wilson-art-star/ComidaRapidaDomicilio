@@ -22,9 +22,7 @@
                             <li class="nav-item" @click="menu=2">
                                 <a class="nav-link" href="#"><i class="fa fa-tags"></i>Tipos de Insumos</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#"><i class="fa fa-pie-chart"></i>Arreglo</a>
-                            </li>
+                          
                             
                             
                           
@@ -48,7 +46,7 @@
                             <li class="nav-item" @click="menu=6">
                                 <a class="nav-link" href="#"><i class="fa fa-motorcycle"></i>Pedido</a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item" @click="menu=7">
                                 <a class="nav-link" href="#"><i class="fa fa-pencil-square-o"></i>Factura</a>
                             </li>
                         </ul>

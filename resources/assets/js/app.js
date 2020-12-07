@@ -31,6 +31,7 @@ Vue.component('empleado', require('./components/Empleado.vue'));
 ///////////////(DETALLES MAESTRO)
 
 Vue.component('pedido', require('./components/Pedido.vue'));
+Vue.component('factura', require('./components/Factura.vue'));
 
 
 const app = new Vue({

@@ -12,17 +12,22 @@
 */
 // ::::::::::::::
 // 1. creo las rutas
-Route::get('/', function () {
-    return view('contenido/contenido');
-});
+ Route::get('/main', function () {
+     return view('contenido/contenido');
+ })->name('main');
 route::get('plantilla', function () {
     return view('plantilla');
 });
+
+
+Route::get('/','Auth\LoginController@mostrarlogin');
+Route::post('/login','Auth\LoginController@login')->name('login');
 
 ////////////////// TABLAS MAESTRAS ////////////////////////
 
 ////////////////////////////////////////////////(CLIENTES)
 Route::get('clientes','ClienteControlles@index');
+Route::get('getcli','ClienteControlles@getCli');
 Route::post('/clientes/registrar','ClienteControlles@store');
 Route::put('/clientes/actualizar','ClienteControlles@update');
 Route::post('/clientes/eliminar','ClienteControlles@destroy');
@@ -34,7 +39,6 @@ Route::get('productos','ProductoController@index');
 Route::get('producto','ProductoController@index2');
 Route::get('getproduc','ProductoController@getProduc');
 /////////////////////////////////////////////////////
-Route::get('getpro','ProductoController@getPro');
 Route::post('/productos/registrar','ProductoController@store');
 Route::put('/productos/actualizar','ProductoController@update');
 Route::post('/productos/eliminar','ProductoController@destroy');
@@ -78,6 +82,18 @@ Route::post('/empleados/eliminar','EmpleadoController@destroy');
 
 
 /////////////////////////////////////////////////////(PEDIDOS)
-
+Route::get('pedidos','PedidoController@index2');
+Route::get('getpedi','PedidoController@getPedi');
+/////////////////////////////////////////////////////
 Route::get('pedido','PedidoController@index');
 Route::post('/pedido/registrar','PedidoController@store');
+
+
+/////////////////////////////////////////////////////(FACTURAS)
+Route::get('factura','FacturaController@index');
+Route::post('/factura/registrar','FacturaController@store');
+
+
+
+
+

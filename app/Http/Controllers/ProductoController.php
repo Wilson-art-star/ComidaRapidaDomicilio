@@ -121,11 +121,5 @@ class ProductoController extends Controller
         $productos->delete();
     }
 
-    public function getPro(Request $request){
-        $productos= Productos::orderBy('nombre','asc')->get();
 
-        return[
-            'pro'=>$productos
-        ];
-    }
 }

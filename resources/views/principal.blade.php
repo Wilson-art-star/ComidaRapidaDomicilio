@@ -76,9 +76,15 @@
     <div class="app-body">
 
 
+    @if(Auth::check())
+
+    @include('plantilla.sidebar')
+    
+    @endif
+
         <!-- Contenido Principal -->
 
-        @include('plantilla.sidebar')
+  
        
         @yield('contenido')
         

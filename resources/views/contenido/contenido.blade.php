@@ -1,6 +1,8 @@
 @extends('principal')
 @section('contenido')
 
+@if (Auth::check())
+
 <template v-if="menu==1">
 
 <entradainventario></entradainventario>
@@ -44,11 +46,21 @@
 
 </template>
 
+<template v-if="menu==7">
+
+<factura></factura>
+
+</template>
+
 <template v-if="menu==8">
 
 <cliente></cliente>
 
 </template>
+
+@endif
+
+
 
 
 

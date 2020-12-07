@@ -36,6 +36,59 @@ class PedidoController extends Controller
 
     }
 
+    public function index2(Request $request)
+    {
+        $buscar=$request->buscar;
+       
+
+        if ($buscar=='') {
+            $pedidos= Pedidos::select('pedidos.id','pedidos.ubicacion','pedidos.telefono','pedidos.estado')
+            ->orderBy('id','asc')->paginate(4);
+        }else{
+            $pedidos= Pedidos::select('pedidos.id','pedidos.ubicacion','pedidos.telefono','pedidos.estado')
+            ->where('id','like', '%'.$buscar.'%')
+            ->orderBy('id','asc')->paginate(4);
+        }
+
+       
+        return [
+            'pagination'=>[
+                'total'=>$pedidos->total(),
+                'current_page'=>$pedidos->currentPage(),
+                'per_page'=>$pedidos->perPage(),
+                'last_page'=>$pedidos->lastPage(),
+                'from'=>$pedidos->firstItem(),
+                'to'=>$pedidos->lastItem(),
+            ],
+
+            'pedidos'=>$pedidos
+        ];
+
+    }
+
+
+    ///////////////////////////////////////////////////////
+
+
+    public function getPedi(Request $request)
+    {
+        $buscar=$request->buscar;
+       
+
+        
+            $pedidos= Pedidos::select('pedidos.id','pedidos.ubicacion','pedidos.telefono','pedidos.estado')
+            ->where('id', $buscar)
+            ->orderBy('id','asc')->take(1)->get();
+  
+       
+        return [
+            'pedidos'=>$pedidos
+        ];
+
+    }
+
+    /////////////////////////////////////////////////////////////
+
     public function store(Request $request){
         
         try {
@@ -65,4 +118,6 @@ class PedidoController extends Controller
             console.log('Error', $e);
         }
     }
+
+    
 }
