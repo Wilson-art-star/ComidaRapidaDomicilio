@@ -91,6 +91,12 @@
                                     </td>
                                     
                                 </tr>
+                                 <tr style="background-color:beige;">
+                                 <td colspan="3" align="center">
+                                 Total del Pedido
+                                </td>
+                                <td>{{total}}</td>
+                                </tr>
 
                             </tbody>
                         </table>
@@ -460,7 +466,14 @@ export default {
 
     computed: {
 
-
+       total:function(){
+            var total=0;
+            for (let i = 0; i < this.arrayDatos.length; i++) {
+                total = total + parseInt(this.arrayDatos[i].precio*this.arrayDatos[i].cantidad);
+                
+            }
+            return total;
+        },
       isActived: function() {
       return this.pagination.current_page;
       },
