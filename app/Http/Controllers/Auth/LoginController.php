@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
+  
     
 
    public function login(Request $request){
@@ -32,4 +33,11 @@ class LoginController extends Controller
    public function mostrarlogin(){
     return view('Auth.login');
    }
+
+   
+   public function logout(Request $request){
+    Auth::logout();
+    $request->session()->invalidate();
+    return redirect('/');
+}
 }

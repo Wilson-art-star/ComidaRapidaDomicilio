@@ -50176,7 +50176,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 correo: this.correo
             }).then(function (response) {
                 me.listClin(1, me.criterio, me.buscar);
-                alert('Se guardo correctamente');
+                me.mensajeRegistro();
                 me.cerrarModal();
             }).catch(function (error) {
                 console.log(error);
@@ -50197,7 +50197,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 correo: this.correo
             }).then(function (response) {
                 me.listClin(1, me.criterio, me.buscar);
-                alert('Se actualizo correctamente');
+                me.mensajeActualizar();
                 me.cerrarModal();
             }).catch(function (error) {
                 console.log(error);
@@ -50215,7 +50215,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 id: data['id']
             }).then(function (response) {
                 me.listClin(1, me.criterio, me.buscar);
-                alert('Se elimino correctamente');
+                me.mesnajeEliminar();
             }).catch(function (error) {
                 console.log(error);
             });
@@ -50258,6 +50258,39 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.ubicacion = '';
             this.telefono = '';
             this.correo = '';
+        },
+        mensajeRegistro: function mensajeRegistro() {
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Se guardo correctamente',
+                showConfirmButton: false,
+                timer: 1500
+            });
+        },
+        mensajeActualizar: function mensajeActualizar() {
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Se actualizo correctamente',
+                showConfirmButton: false,
+                timer: 1500
+            });
+        },
+        mesnajeEliminar: function mesnajeEliminar() {
+            Swal.fire({
+                title: 'Esta Seguro?',
+                text: "La accion sera irreversible!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#FF8B00',
+                confirmButtonText: 'Eliminar'
+            }).then(function (result) {
+                if (result.isConfirmed) {
+                    Swal.fire('Eliminado!', 'Fue eliminado correctamente.', 'success');
+                }
+            });
         }
     },
 
@@ -51311,7 +51344,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             }).then(function (response) {
                 me.listPro(1, me.criterio, me.buscar);
-                alert('Se guardo correctamente');
+                me.mensajeRegistro();
                 me.cerrarModal();
             }).catch(function (error) {
                 console.log(error);
@@ -51329,7 +51362,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 valor: this.valor
             }).then(function (response) {
                 me.listPro(1, me.criterio, me.buscar);
-                alert('Se actualizo correctamente');
+                me.mensajeActualizar();
                 me.cerrarModal();
             }).catch(function (error) {
                 console.log(error);
@@ -51347,7 +51380,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 id: data['id']
             }).then(function (response) {
                 me.listPro(1, me.criterio, me.buscar);
-                alert('Se elimino correctamente');
+                me.mesnajeEliminar();
             }).catch(function (error) {
                 console.log(error);
             });
@@ -51385,6 +51418,39 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         limpiar: function limpiar() {
             this.nombre = '';
             this.valor = '';
+        },
+        mensajeRegistro: function mensajeRegistro() {
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Se guardo correctamente',
+                showConfirmButton: false,
+                timer: 1500
+            });
+        },
+        mensajeActualizar: function mensajeActualizar() {
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Se actualizo correctamente',
+                showConfirmButton: false,
+                timer: 1500
+            });
+        },
+        mesnajeEliminar: function mesnajeEliminar() {
+            Swal.fire({
+                title: 'Esta Seguro?',
+                text: "La accion sera irreversible!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#FF8B00',
+                confirmButtonText: 'Eliminar'
+            }).then(function (result) {
+                if (result.isConfirmed) {
+                    Swal.fire('Eliminado!', 'Fue eliminado correctamente.', 'success');
+                }
+            });
         }
     },
 
@@ -52289,7 +52355,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             }).then(function (response) {
                 me.listCar(1, me.criterio, me.buscar);
-                alert('Se guardo correctamente');
+                me.mensajeRegistro();
                 me.cerrarModal();
             }).catch(function (error) {
                 console.log(error);
@@ -52306,7 +52372,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 nombre: this.nombre
             }).then(function (response) {
                 me.listCar(1, me.criterio, me.buscar);
-                alert('Se actualizo correctamente');
+                me.mensajeActualizar();
                 me.cerrarModal();
             }).catch(function (error) {
                 console.log(error);
@@ -52324,7 +52390,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 id: data['id']
             }).then(function (response) {
                 me.listCar(1, me.criterio, me.buscar);
-                alert('Se elimino correctamente');
+                me.mesnajeEliminar();
             }).catch(function (error) {
                 console.log(error);
             });
@@ -52360,6 +52426,39 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         limpiar: function limpiar() {
             this.nombre = '';
+        },
+        mensajeRegistro: function mensajeRegistro() {
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Se guardo correctamente',
+                showConfirmButton: false,
+                timer: 1500
+            });
+        },
+        mensajeActualizar: function mensajeActualizar() {
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Se actualizo correctamente',
+                showConfirmButton: false,
+                timer: 1500
+            });
+        },
+        mesnajeEliminar: function mesnajeEliminar() {
+            Swal.fire({
+                title: 'Esta Seguro?',
+                text: "La accion sera irreversible!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#FF8B00',
+                confirmButtonText: 'Eliminar'
+            }).then(function (result) {
+                if (result.isConfirmed) {
+                    Swal.fire('Eliminado!', 'Fue eliminado correctamente.', 'success');
+                }
+            });
         }
     },
 
@@ -53218,7 +53317,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             }).then(function (response) {
                 me.listTipIns(1, me.criterio, me.buscar);
-                alert('Se guardo correctamente');
+                me.mensajeRegistro();
                 me.cerrarModal();
             }).catch(function (error) {
                 console.log(error);
@@ -53235,7 +53334,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 nombre: this.nombre
             }).then(function (response) {
                 me.listTipIns(1, me.criterio, me.buscar);
-                alert('Se actualizo correctamente');
+                me.mensajeActualizar();
                 me.cerrarModal();
             }).catch(function (error) {
                 console.log(error);
@@ -53253,7 +53352,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 id: data['id']
             }).then(function (response) {
                 me.listTipIns(1, me.criterio, me.buscar);
-                alert('Se elimino correctamente');
+                me.mesnajeEliminar();
             }).catch(function (error) {
                 console.log(error);
             });
@@ -53266,13 +53365,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             switch (accion) {
                 case 'guardar':
-                    this.titulo = 'Registrar tipo de insumo';
+                    this.titulo = 'Registrar Tipo de insumo';
                     this.accion = 0;
                     this.limpiar();
                     break;
 
                 case 'editar':
-                    this.titulo = 'Editar datos del tipo de insumo';
+                    this.titulo = 'Editar datos del Tipo de insumo';
                     this.accion = 1;
                     this.idTip = data['id'];
                     this.nombre = data['nombre'];
@@ -53289,6 +53388,39 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         limpiar: function limpiar() {
             this.nombre = '';
+        },
+        mensajeRegistro: function mensajeRegistro() {
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Se guardo correctamente',
+                showConfirmButton: false,
+                timer: 1500
+            });
+        },
+        mensajeActualizar: function mensajeActualizar() {
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Se actualizo correctamente',
+                showConfirmButton: false,
+                timer: 1500
+            });
+        },
+        mesnajeEliminar: function mesnajeEliminar() {
+            Swal.fire({
+                title: 'Esta Seguro?',
+                text: "La accion sera irreversible!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#FF8B00',
+                confirmButtonText: 'Eliminar'
+            }).then(function (result) {
+                if (result.isConfirmed) {
+                    Swal.fire('Eliminado!', 'Fue eliminado correctamente.', 'success');
+                }
+            });
         }
     },
 
@@ -54157,7 +54289,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             }).then(function (response) {
                 me.listInv(1, me.criterio, me.buscar);
-                alert('Se guardo correctamente');
+                me.mensajeRegistro();
                 me.cerrarModal();
             }).catch(function (error) {
                 console.log(error);
@@ -54175,7 +54307,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 hora: this.hora
             }).then(function (response) {
                 me.listInv(1, me.criterio, me.buscar);
-                alert('Se actualizo correctamente');
+                me.mensajeActualizar();
                 me.cerrarModal();
             }).catch(function (error) {
                 console.log(error);
@@ -54193,7 +54325,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 id: data['id']
             }).then(function (response) {
                 me.listInv(1, me.criterio, me.buscar);
-                alert('Se elimino correctamente');
+                me.mesnajeEliminar();
             }).catch(function (error) {
                 console.log(error);
             });
@@ -54206,13 +54338,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             switch (accion) {
                 case 'guardar':
-                    this.titulo = 'Registrar la entrada del inventario';
+                    this.titulo = 'Registrar la Entrada del inventario';
                     this.accion = 0;
                     this.limpiar();
                     break;
 
                 case 'editar':
-                    this.titulo = 'Editar datos de la entrada del inventario';
+                    this.titulo = 'Editar datos de la Entrada del inventario';
                     this.accion = 1;
                     this.idInv = data['id'];
                     this.fecha_entrada = data['fecha_entrada'];
@@ -54231,6 +54363,39 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         limpiar: function limpiar() {
             this.fecha_entrada = '';
             this.hora = '';
+        },
+        mensajeRegistro: function mensajeRegistro() {
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Se guardo correctamente',
+                showConfirmButton: false,
+                timer: 1500
+            });
+        },
+        mensajeActualizar: function mensajeActualizar() {
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Se actualizo correctamente',
+                showConfirmButton: false,
+                timer: 1500
+            });
+        },
+        mesnajeEliminar: function mesnajeEliminar() {
+            Swal.fire({
+                title: 'Esta Seguro?',
+                text: "La accion sera irreversible!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#FF8B00',
+                confirmButtonText: 'Eliminar'
+            }).then(function (result) {
+                if (result.isConfirmed) {
+                    Swal.fire('Eliminado!', 'Fue eliminado correctamente.', 'success');
+                }
+            });
         }
     },
 
@@ -55184,7 +55349,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 valor: this.valor
             }).then(function (response) {
                 me.listIns(1, me.criterio, me.buscar);
-                alert('Se guardo correctamente');
+                me.mensajeRegistro();
                 me.cerrarModal();
             }).catch(function (error) {
                 console.log(error);
@@ -55204,7 +55369,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 valor: this.valor
             }).then(function (response) {
                 me.listIns(1, me.criterio, me.buscar);
-                alert('Se actualizo correctamente');
+                me.mensajeActualizar();
                 me.cerrarModal();
             }).catch(function (error) {
                 console.log(error);
@@ -55222,7 +55387,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 id: data['id']
             }).then(function (response) {
                 me.listIns(1, me.criterio, me.buscar);
-                alert('Se elimino correctamente');
+                me.mesnajeEliminar();
             }).catch(function (error) {
                 console.log(error);
             });
@@ -55263,6 +55428,39 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.nombre = '';
             this.fecha_caducidad = '';
             this.valor = '';
+        },
+        mensajeRegistro: function mensajeRegistro() {
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Se guardo correctamente',
+                showConfirmButton: false,
+                timer: 1500
+            });
+        },
+        mensajeActualizar: function mensajeActualizar() {
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Se actualizo correctamente',
+                showConfirmButton: false,
+                timer: 1500
+            });
+        },
+        mesnajeEliminar: function mesnajeEliminar() {
+            Swal.fire({
+                title: 'Esta Seguro?',
+                text: "La accion sera irreversible!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#FF8B00',
+                confirmButtonText: 'Eliminar'
+            }).then(function (result) {
+                if (result.isConfirmed) {
+                    Swal.fire('Eliminado!', 'Fue eliminado correctamente.', 'success');
+                }
+            });
         }
     },
 
@@ -56326,7 +56524,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 idCar: this.idCar
             }).then(function (response) {
                 me.listEmp(1, me.criterio, me.buscar);
-                alert('Se guardo correctamente');
+                me.mensajeRegistro();
                 me.cerrarModal();
             }).catch(function (error) {
                 console.log(error);
@@ -56346,7 +56544,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 idCar: this.idCar
             }).then(function (response) {
                 me.listEmp(1, me.criterio, me.buscar);
-                alert('Se actualizo correctamente');
+                me.mensajeActualizar();
                 me.cerrarModal();
             }).catch(function (error) {
                 console.log(error);
@@ -56364,7 +56562,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 id: data['id']
             }).then(function (response) {
                 me.listEmp(1, me.criterio, me.buscar);
-                alert('Se elimino correctamente');
+                me.mesnajeEliminar();
             }).catch(function (error) {
                 console.log(error);
             });
@@ -56377,13 +56575,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             switch (accion) {
                 case 'guardar':
-                    this.titulo = 'Registrar Insumo';
+                    this.titulo = 'Registrar Empleado';
                     this.accion = 0;
                     this.limpiar();
                     break;
 
                 case 'editar':
-                    this.titulo = 'Editar datos del Insumo';
+                    this.titulo = 'Editar datos del Empleado';
                     this.accion = 1;
                     this.idEmp = data['id'];
                     this.nombre = data['nombre'];
@@ -56405,6 +56603,39 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.nombre = '';
             this.apellido = '';
             this.telefono = '';
+        },
+        mensajeRegistro: function mensajeRegistro() {
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Se guardo correctamente',
+                showConfirmButton: false,
+                timer: 1500
+            });
+        },
+        mensajeActualizar: function mensajeActualizar() {
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Se actualizo correctamente',
+                showConfirmButton: false,
+                timer: 1500
+            });
+        },
+        mesnajeEliminar: function mesnajeEliminar() {
+            Swal.fire({
+                title: 'Esta Seguro?',
+                text: "La accion sera irreversible!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#FF8B00',
+                confirmButtonText: 'Eliminar'
+            }).then(function (result) {
+                if (result.isConfirmed) {
+                    Swal.fire('Eliminado!', 'Fue eliminado correctamente.', 'success');
+                }
+            });
         }
     },
 
@@ -57414,6 +57645,44 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -57432,6 +57701,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             cantidad: 1,
             precio: '',
 
+            ///////////////////
+            arrayMaster: [],
+            view: 0,
+            idPedido: 0,
             ///////////////////
 
             nomProducto: "",
@@ -57477,6 +57750,32 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             });
         },
 
+
+        /////////////////////////////////////////////////////////////////////(LISTAR DATOS)
+
+        listDatos: function listDatos(page) {
+            var me = this;
+            var url = "/pedido?page=" + page + '&buscar=' + this.idPedido;
+            axios.get(url).then(function (response) {
+                var respuesta = response.data;
+                me.arrayMaster = respuesta.pedidos.data;
+                me.pagination = respuesta.pagination;
+            }).catch(function (error) {
+                console.log(error);
+            });
+        },
+        listDetDatos: function listDetDatos(page) {
+            var me = this;
+            var url = "/detpedido?page=" + page + '&buscar=' + this.idPedido;
+            axios.get(url).then(function (response) {
+                var respuesta = response.data;
+                me.arrayDatos = respuesta.pedidos.data;
+                me.pagination = respuesta.pagination;
+            }).catch(function (error) {
+                console.log(error);
+            });
+        },
+
         ///////////////////////////////////////(Buscar por medio de la barra de buscar)
         getProc: function getProc(buscar) {
             var me = this;
@@ -57511,13 +57810,31 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         /////////////////////////////////////////////////////////////
 
+        mostrar: function mostrar() {
+            var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+
+            this.view = 1;
+            this.idEmple = data['idEmple'];
+            this.ubicacion = data['ubicacion'];
+            this.telefono = data['telefono'];
+            this.estadoP = data['estado'];
+            this.idPedido = data['id'];
+            this.listDetDatos(1, "");
+        },
+        ocultar: function ocultar() {
+            this.view = 0;
+        },
+
+
+        /////////////////////////////////////////////////////////////
+
         agregarItem: function agregarItem() {
             var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
 
             this.arrayDatos.push({ id: data['id'], nombre: data['nombre'], valor: data['valor'], cantidad: this.cantidad });
         },
         agregarItem2: function agregarItem2() {
-            this.arrayDatos.push({ id: this.idProduc, nombre: this.nomProducto, valor: this.valor, cantidad: this.cantidad });
+            this.arrayDatos.push({ id: this.idProduc, nomProducto: this.nomProducto, precio: this.valor, cantidad: this.cantidad });
         },
         eliminarItem: function eliminarItem() {
             var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
@@ -57537,8 +57854,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 data: me.arrayDatos
 
             }).then(function (response) {
-                //me.listCar(1, me.criterio, me.buscar);
-                alert('Se guardo correctamente');
+
+                me.mensaje();
             }).catch(function (error) {
                 console.log(error);
             });
@@ -57552,18 +57869,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         cerrarModal: function cerrarModal() {
             this.modal = 0;
             this.titulo = "";
+        },
+        mensaje: function mensaje() {
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Se guardo correctamente',
+                showConfirmButton: false,
+                timer: 1500
+            });
         }
     },
 
     computed: {
-
-        total: function total() {
-            var total = 0;
-            for (var i = 0; i < this.arrayDatos.length; i++) {
-                total = total + parseInt(this.arrayDatos[i].valor * this.arrayDatos[i].cantidad);
-            }
-            return total;
-        },
 
         isActived: function isActived() {
             return this.pagination.current_page;
@@ -57594,7 +57912,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     },
     mounted: function mounted() {
-        this.listProc(1, this.buscar);
+
+        this.listDatos();
         this.getEmp();
     }
 });
@@ -57622,7 +57941,7 @@ var render = function() {
               attrs: { type: "button", "data-toggle": "modal" },
               on: {
                 click: function($event) {
-                  return _vm.abrirModal("guardar")
+                  return _vm.mostrar()
                 }
               }
             },
@@ -57633,343 +57952,441 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "card-body" }, [
-          _c("div", { staticClass: "form-group form-inline" }, [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.buscar,
-                  expression: "buscar"
-                }
-              ],
-              staticClass: "form-control col-3",
-              attrs: {
-                placeholder: "Ingrese el codigo del Producto",
-                type: "text"
-              },
-              domProps: { value: _vm.buscar },
-              on: {
-                keyup: function($event) {
-                  if (
-                    !$event.type.indexOf("key") &&
-                    _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
-                  ) {
-                    return null
-                  }
-                  return _vm.getProc(_vm.buscar)
-                },
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.buscar = $event.target.value
-                }
-              }
-            }),
-            _vm._v(" "),
-            _c(
-              "button",
-              { staticClass: "btn btn-dark", on: { click: _vm.abrirModal } },
-              [_c("i", { staticClass: "fa fa-search" })]
-            ),
-            _vm._v(" "),
-            _c("h4", {
-              staticClass: "text-muted mx-sm-5",
-              domProps: { textContent: _vm._s(_vm.nomProducto) }
-            }),
-            _vm._v(" "),
-            _c("label", { staticClass: "mx-sm-3" }, [_vm._v("Cantidad")]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.cantidad,
-                  expression: "cantidad"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: { type: "number", placeholder: "Cantidad" },
-              domProps: { value: _vm.cantidad },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.cantidad = $event.target.value
-                }
-              }
-            }),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-success",
-                attrs: { type: "button", "data-toggle": "modal" },
-                on: { click: _vm.agregarItem2 }
-              },
-              [_c("i", { staticClass: "icon-check" })]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "card-body" }, [
-            _c("div", { staticClass: "form-group row" }, [
-              _c(
-                "label",
-                {
-                  staticClass: "col-md-3 form-control-label",
-                  attrs: { for: "text-input" }
-                },
-                [_vm._v("Empleado")]
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-md-5" }, [
-                _c(
-                  "select",
-                  {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.idEmple,
-                        expression: "idEmple"
+        _c(
+          "div",
+          { staticClass: "card-body" },
+          [
+            _vm.view
+              ? [
+                  _c("div", { staticClass: "form-group form-inline" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.buscar,
+                          expression: "buscar"
+                        }
+                      ],
+                      staticClass: "form-control col-3",
+                      attrs: {
+                        placeholder: "Ingrese el codigo del Producto",
+                        type: "text"
+                      },
+                      domProps: { value: _vm.buscar },
+                      on: {
+                        keyup: function($event) {
+                          if (
+                            !$event.type.indexOf("key") &&
+                            _vm._k(
+                              $event.keyCode,
+                              "enter",
+                              13,
+                              $event.key,
+                              "Enter"
+                            )
+                          ) {
+                            return null
+                          }
+                          return _vm.getProc(_vm.buscar)
+                        },
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.buscar = $event.target.value
+                        }
                       }
-                    ],
-                    staticClass: "col-md-9 form-control",
-                    on: {
-                      change: function($event) {
-                        var $$selectedVal = Array.prototype.filter
-                          .call($event.target.options, function(o) {
-                            return o.selected
-                          })
-                          .map(function(o) {
-                            var val = "_value" in o ? o._value : o.value
-                            return val
-                          })
-                        _vm.idEmple = $event.target.multiple
-                          ? $$selectedVal
-                          : $$selectedVal[0]
-                      }
-                    }
-                  },
-                  _vm._l(_vm.arrayEmpleados, function(objeto) {
-                    return _c("option", {
-                      key: objeto.id,
-                      domProps: {
-                        value: objeto.id,
-                        textContent: _vm._s(objeto.nomCom)
-                      }
-                    })
-                  }),
-                  0
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group row" }, [
-              _c(
-                "label",
-                {
-                  staticClass: "col-md-3 form-control-label",
-                  attrs: { for: "text-input" }
-                },
-                [_vm._v("Telefono")]
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-md-3" }, [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.telefono,
-                      expression: "telefono"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: {
-                    type: "text",
-                    id: "nombre",
-                    name: "nombre",
-                    placeholder: "Telefono de contacto"
-                  },
-                  domProps: { value: _vm.telefono },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.telefono = $event.target.value
-                    }
-                  }
-                })
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group row" }, [
-              _c(
-                "label",
-                {
-                  staticClass: "col-md-3 form-control-label",
-                  attrs: { for: "text-input" }
-                },
-                [_vm._v("Ubicación")]
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-md-3" }, [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.ubicacion,
-                      expression: "ubicacion"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: {
-                    type: "text",
-                    id: "nombre",
-                    name: "nombre",
-                    placeholder: "Ubicacion de entrega"
-                  },
-                  domProps: { value: _vm.ubicacion },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.ubicacion = $event.target.value
-                    }
-                  }
-                })
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group row" }, [
-              _c(
-                "label",
-                {
-                  staticClass: "col-md-3 form-control-label",
-                  attrs: { for: "text-input" }
-                },
-                [_vm._v("Estado Pedido")]
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-md-4" }, [
-                _c(
-                  "select",
-                  {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.estadoP,
-                        expression: "estadoP"
-                      }
-                    ],
-                    staticClass: "col-md-9 form-control",
-                    on: {
-                      change: function($event) {
-                        var $$selectedVal = Array.prototype.filter
-                          .call($event.target.options, function(o) {
-                            return o.selected
-                          })
-                          .map(function(o) {
-                            var val = "_value" in o ? o._value : o.value
-                            return val
-                          })
-                        _vm.estadoP = $event.target.multiple
-                          ? $$selectedVal
-                          : $$selectedVal[0]
-                      }
-                    }
-                  },
-                  [
-                    _c("option", [_vm._v("Listo")]),
+                    }),
                     _vm._v(" "),
-                    _c("option", [_vm._v("Pendiente")]),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-dark",
+                        on: { click: _vm.abrirModal }
+                      },
+                      [_c("i", { staticClass: "fa fa-search" })]
+                    ),
                     _vm._v(" "),
-                    _c("option", [_vm._v("Anulado")])
-                  ]
-                )
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("br"),
-          _vm._v(" "),
-          _c(
-            "table",
-            { staticClass: "table table-bordered table-striped table-sm" },
-            [
-              _vm._m(1),
-              _vm._v(" "),
-              _c(
-                "tbody",
-                [
-                  _vm._l(_vm.arrayDatos, function(objeto) {
-                    return _c("tr", { key: objeto.id }, [
-                      _c("td", {
-                        domProps: { textContent: _vm._s(objeto.nombre) }
-                      }),
+                    _c("h4", {
+                      staticClass: "text-muted mx-sm-5",
+                      domProps: { textContent: _vm._s(_vm.nomProducto) }
+                    }),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "mx-sm-3" }, [
+                      _vm._v("Cantidad")
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.cantidad,
+                          expression: "cantidad"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "number", placeholder: "Cantidad" },
+                      domProps: { value: _vm.cantidad },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.cantidad = $event.target.value
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-success",
+                        attrs: { type: "button", "data-toggle": "modal" },
+                        on: { click: _vm.agregarItem2 }
+                      },
+                      [_c("i", { staticClass: "icon-check" })]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card-body" }, [
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Empleado")]
+                      ),
                       _vm._v(" "),
-                      _c("td", {
-                        domProps: { textContent: _vm._s(objeto.valor) }
-                      }),
-                      _vm._v(" "),
-                      _c("td", {
-                        domProps: { textContent: _vm._s(objeto.cantidad) }
-                      }),
-                      _vm._v(" "),
-                      _c("td", [
+                      _c("div", { staticClass: "col-md-5" }, [
                         _c(
-                          "button",
+                          "select",
                           {
-                            staticClass: "btn btn-danger btn-sm",
-                            attrs: { type: "button", "data-toggle": "modal" },
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.idEmple,
+                                expression: "idEmple"
+                              }
+                            ],
+                            staticClass: "col-md-9 form-control",
                             on: {
-                              click: function($event) {
-                                return _vm.eliminarItem(_vm.id, objeto)
+                              change: function($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function(o) {
+                                    return o.selected
+                                  })
+                                  .map(function(o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.idEmple = $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
                               }
                             }
                           },
-                          [_c("i", { staticClass: "icon-trash" })]
+                          _vm._l(_vm.arrayEmpleados, function(objeto) {
+                            return _c("option", {
+                              key: objeto.id,
+                              domProps: {
+                                value: objeto.id,
+                                textContent: _vm._s(objeto.nomCom)
+                              }
+                            })
+                          }),
+                          0
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Telefono")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-3" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.telefono,
+                              expression: "telefono"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            id: "nombre",
+                            name: "nombre",
+                            placeholder: "Telefono de contacto"
+                          },
+                          domProps: { value: _vm.telefono },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.telefono = $event.target.value
+                            }
+                          }
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Ubicación")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-3" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.ubicacion,
+                              expression: "ubicacion"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            id: "nombre",
+                            name: "nombre",
+                            placeholder: "Ubicacion de entrega"
+                          },
+                          domProps: { value: _vm.ubicacion },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.ubicacion = $event.target.value
+                            }
+                          }
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Estado Pedido")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-4" }, [
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.estadoP,
+                                expression: "estadoP"
+                              }
+                            ],
+                            staticClass: "col-md-9 form-control",
+                            on: {
+                              change: function($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function(o) {
+                                    return o.selected
+                                  })
+                                  .map(function(o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.estadoP = $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              }
+                            }
+                          },
+                          [
+                            _c("option", [_vm._v("Listo")]),
+                            _vm._v(" "),
+                            _c("option", [_vm._v("Pendiente")]),
+                            _vm._v(" "),
+                            _c("option", [_vm._v("Anulado")])
+                          ]
                         )
                       ])
                     ])
-                  }),
+                  ]),
                   _vm._v(" "),
-                  _c("tr", { staticStyle: { "background-color": "beige" } }, [
-                    _c("td", { attrs: { colspan: "3", align: "center" } }, [
-                      _vm._v("Total del Pedido")
-                    ]),
-                    _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(_vm.total))])
-                  ])
-                ],
-                2
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-dark",
-              attrs: { type: "button", "data-toggle": "modal" },
-              on: {
-                click: function($event) {
-                  return _vm.regPed()
-                }
-              }
-            },
-            [_vm._v("\n                    Guardar\n                    ")]
-          )
-        ])
+                  _c("br"),
+                  _vm._v(" "),
+                  _c(
+                    "table",
+                    {
+                      staticClass: "table table-bordered table-striped table-sm"
+                    },
+                    [
+                      _vm._m(1),
+                      _vm._v(" "),
+                      _c(
+                        "tbody",
+                        _vm._l(_vm.arrayDatos, function(objeto) {
+                          return _c("tr", { key: objeto.id }, [
+                            _c("td", {
+                              domProps: {
+                                textContent: _vm._s(objeto.nomProducto)
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("td", {
+                              domProps: { textContent: _vm._s(objeto.precio) }
+                            }),
+                            _vm._v(" "),
+                            _c("td", {
+                              domProps: { textContent: _vm._s(objeto.cantidad) }
+                            }),
+                            _vm._v(" "),
+                            _c("td", [
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-danger btn-sm",
+                                  attrs: {
+                                    type: "button",
+                                    "data-toggle": "modal"
+                                  },
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.eliminarItem(_vm.id, objeto)
+                                    }
+                                  }
+                                },
+                                [_c("i", { staticClass: "icon-trash" })]
+                              )
+                            ])
+                          ])
+                        }),
+                        0
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-dark",
+                      attrs: { type: "button", "data-toggle": "modal" },
+                      on: {
+                        click: function($event) {
+                          return _vm.regPed()
+                        }
+                      }
+                    },
+                    [
+                      _vm._v(
+                        "\n                    Guardar\n                    "
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-light",
+                      attrs: { type: "button", "data-toggle": "modal" },
+                      on: {
+                        click: function($event) {
+                          return _vm.ocultar()
+                        }
+                      }
+                    },
+                    [
+                      _vm._v(
+                        "\n                    Atras\n                    "
+                      )
+                    ]
+                  )
+                ]
+              : [
+                  _c(
+                    "table",
+                    {
+                      staticClass: "table table-bordered table-striped table-sm"
+                    },
+                    [
+                      _vm._m(2),
+                      _vm._v(" "),
+                      _c(
+                        "tbody",
+                        _vm._l(_vm.arrayMaster, function(objeto) {
+                          return _c("tr", { key: objeto.id }, [
+                            _c("td", {
+                              domProps: { textContent: _vm._s(objeto.id) }
+                            }),
+                            _vm._v(" "),
+                            _c("td", {
+                              domProps: { textContent: _vm._s(objeto.nomCom) }
+                            }),
+                            _vm._v(" "),
+                            _c("td", {
+                              domProps: {
+                                textContent: _vm._s(objeto.ubicacion)
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("td", {
+                              domProps: { textContent: _vm._s(objeto.telefono) }
+                            }),
+                            _vm._v(" "),
+                            _c("td", {
+                              domProps: { textContent: _vm._s(objeto.estado) }
+                            }),
+                            _vm._v(" "),
+                            _c("td", [
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-success btn-sm",
+                                  attrs: {
+                                    type: "button",
+                                    "data-toggle": "modal"
+                                  },
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.mostrar(objeto)
+                                    }
+                                  }
+                                },
+                                [_c("i", { staticClass: "icon-eye" })]
+                              )
+                            ])
+                          ])
+                        }),
+                        0
+                      )
+                    ]
+                  )
+                ]
+          ],
+          2
+        )
       ])
     ]),
     _vm._v(" "),
@@ -58099,7 +58516,7 @@ var render = function() {
                     "table",
                     { staticClass: "table table-bordered table-striped" },
                     [
-                      _vm._m(2),
+                      _vm._m(3),
                       _vm._v(" "),
                       _c(
                         "tbody",
@@ -58258,6 +58675,26 @@ var staticRenderFns = [
         _c("th", [_vm._v("Valor por Unidad")]),
         _vm._v(" "),
         _c("th", [_vm._v("Cantidad")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Opciones")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", { staticClass: "thead-dark" }, [
+      _c("tr", [
+        _c("th", [_vm._v("#P")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Empleado")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Ubicacion")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Telefono")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Estado")]),
         _vm._v(" "),
         _c("th", [_vm._v("Opciones")])
       ])
@@ -58565,6 +59002,54 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -58583,6 +59068,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             estado: '',
             totalF: 0,
 
+            ///////////////////
+
+            ///////////////////
+            arrayMaster: [],
+            view: 0,
+            idFactura: 0,
             ///////////////////
 
 
@@ -58626,6 +59117,32 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             });
         },
 
+
+        /////////////////////////////////////////////////////////////////////(LISTAR DATOS)
+
+        listDatos: function listDatos(page) {
+            var me = this;
+            var url = "/factura?page=" + page + '&buscar=' + this.idFactura;
+            axios.get(url).then(function (response) {
+                var respuesta = response.data;
+                me.arrayMaster = respuesta.facturas.data;
+                me.pagination = respuesta.pagination;
+            }).catch(function (error) {
+                console.log(error);
+            });
+        },
+        listDetDatos: function listDetDatos(page) {
+            var me = this;
+            var url = "/detfactura?page=" + page + '&buscar=' + this.idFactura;
+            axios.get(url).then(function (response) {
+                var respuesta = response.data;
+                me.arrayDatos = respuesta.facturas.data;
+                me.pagination = respuesta.pagination;
+            }).catch(function (error) {
+                console.log(error);
+            });
+        },
+
         ///////////////////////////////////////(Buscar por medio de la barra de buscar)
         getPedi: function getPedi(buscar) {
             var me = this;
@@ -58659,6 +59176,25 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             });
         },
 
+
+        /////////////////////////////////////////////////////////////
+
+        mostrar: function mostrar() {
+            var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+
+            this.view = 1;
+            this.idClin = data['idClin'];
+            this.totalF = data['total'];
+            this.idFactura = data['id'];
+            this.idPedi = data['idPedi'];
+            this.listDetDatos(1, "");
+        },
+        ocultar: function ocultar() {
+            this.view = 0;
+        },
+
+
+        /////////////////////////////////////////////////////////////
         /////////////////////////////////////////////////////////////
 
         agregarItem: function agregarItem() {
@@ -58685,8 +59221,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 data: me.arrayDatos
 
             }).then(function (response) {
-                //me.listCar(1, me.criterio, me.buscar);
-                alert('Se guardo correctamente');
+
+                me.mensaje();
             }).catch(function (error) {
                 console.log(error);
             });
@@ -58695,11 +59231,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         /////////////////////////////////////
         abrirModal: function abrirModal() {
             this.modal = 1;
-            this.titulo = "Seleccione el pedido";
+            this.titulo = "Seleccione el Pedido";
         },
         cerrarModal: function cerrarModal() {
             this.modal = 0;
             this.titulo = "";
+        },
+        mensaje: function mensaje() {
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Se guardo correctamente',
+                showConfirmButton: false,
+                timer: 1500
+            });
         }
     },
 
@@ -58742,7 +59287,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     },
     mounted: function mounted() {
-        this.listPedi(1, this.buscar);
+
+        this.listDatos();
         this.getCli();
     }
 });
@@ -58770,7 +59316,7 @@ var render = function() {
               attrs: { type: "button", "data-toggle": "modal" },
               on: {
                 click: function($event) {
-                  return _vm.abrirModal("guardar")
+                  return _vm.mostrar()
                 }
               }
             },
@@ -58781,221 +59327,323 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "card-body" }, [
-          _c("div", { staticClass: "form-group form-inline" }, [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.buscar,
-                  expression: "buscar"
-                }
-              ],
-              staticClass: "form-control col-3",
-              attrs: {
-                placeholder: "Ingrese la ubicación o su codigo",
-                type: "text"
-              },
-              domProps: { value: _vm.buscar },
-              on: {
-                keyup: function($event) {
-                  if (
-                    !$event.type.indexOf("key") &&
-                    _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
-                  ) {
-                    return null
-                  }
-                  return _vm.getPedi(_vm.buscar)
-                },
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.buscar = $event.target.value
-                }
-              }
-            }),
-            _vm._v(" "),
-            _c(
-              "button",
-              { staticClass: "btn btn-dark", on: { click: _vm.abrirModal } },
-              [_c("i", { staticClass: "fa fa-search" })]
-            ),
-            _vm._v(" "),
-            _c("h4", {
-              staticClass: "text-muted mx-sm-5",
-              domProps: { textContent: _vm._s(_vm.ubicacion) }
-            }),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-success",
-                attrs: { type: "button", "data-toggle": "modal" },
-                on: { click: _vm.agregarItem2 }
-              },
-              [_c("i", { staticClass: "icon-check" })]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "card-body" }, [
-            _c("div", { staticClass: "form-group row" }, [
-              _c(
-                "label",
-                {
-                  staticClass: "col-md-3 form-control-label",
-                  attrs: { for: "text-input" }
-                },
-                [_vm._v("Cliente")]
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-md-5" }, [
-                _c(
-                  "select",
-                  {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.idClin,
-                        expression: "idClin"
-                      }
-                    ],
-                    staticClass: "col-md-9 form-control",
-                    on: {
-                      change: function($event) {
-                        var $$selectedVal = Array.prototype.filter
-                          .call($event.target.options, function(o) {
-                            return o.selected
-                          })
-                          .map(function(o) {
-                            var val = "_value" in o ? o._value : o.value
-                            return val
-                          })
-                        _vm.idClin = $event.target.multiple
-                          ? $$selectedVal
-                          : $$selectedVal[0]
-                      }
-                    }
-                  },
-                  _vm._l(_vm.arrayClientes, function(objeto) {
-                    return _c("option", {
-                      key: objeto.id,
-                      domProps: {
-                        value: objeto.id,
-                        textContent: _vm._s(objeto.nomClin)
-                      }
-                    })
-                  }),
-                  0
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group row" }, [
-              _c(
-                "label",
-                {
-                  staticClass: "col-md-3 form-control-label",
-                  attrs: { for: "text-input" }
-                },
-                [_vm._v("Total a Pagar")]
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-md-3" }, [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.totalF,
-                      expression: "totalF"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: {
-                    type: "text",
-                    id: "nombre",
-                    name: "nombre",
-                    placeholder: "Telefono de contacto"
-                  },
-                  domProps: { value: _vm.totalF },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.totalF = $event.target.value
-                    }
-                  }
-                })
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("br"),
-          _vm._v(" "),
-          _c(
-            "table",
-            { staticClass: "table table-bordered table-striped table-sm" },
-            [
-              _vm._m(1),
-              _vm._v(" "),
-              _c(
-                "tbody",
-                _vm._l(_vm.arrayDatos, function(objeto) {
-                  return _c("tr", { key: objeto.id }, [
-                    _c("td", { domProps: { textContent: _vm._s(objeto.id) } }),
-                    _vm._v(" "),
-                    _c("td", {
-                      domProps: { textContent: _vm._s(objeto.ubicacion) }
-                    }),
-                    _vm._v(" "),
-                    _c("td", {
-                      domProps: { textContent: _vm._s(objeto.telefono) }
-                    }),
-                    _vm._v(" "),
-                    _c("td", {
-                      domProps: { textContent: _vm._s(objeto.estado) }
-                    }),
-                    _vm._v(" "),
-                    _c("td", [
-                      _c(
-                        "button",
+        _c(
+          "div",
+          { staticClass: "card-body" },
+          [
+            _vm.view
+              ? [
+                  _c("div", { staticClass: "form-group form-inline" }, [
+                    _c("input", {
+                      directives: [
                         {
-                          staticClass: "btn btn-danger btn-sm",
-                          attrs: { type: "button", "data-toggle": "modal" },
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.buscar,
+                          expression: "buscar"
+                        }
+                      ],
+                      staticClass: "form-control col-3",
+                      attrs: {
+                        placeholder: "Ingrese la ubicación o su codigo",
+                        type: "text"
+                      },
+                      domProps: { value: _vm.buscar },
+                      on: {
+                        keyup: function($event) {
+                          if (
+                            !$event.type.indexOf("key") &&
+                            _vm._k(
+                              $event.keyCode,
+                              "enter",
+                              13,
+                              $event.key,
+                              "Enter"
+                            )
+                          ) {
+                            return null
+                          }
+                          return _vm.getPedi(_vm.buscar)
+                        },
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.buscar = $event.target.value
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-dark",
+                        on: { click: _vm.abrirModal }
+                      },
+                      [_c("i", { staticClass: "fa fa-search" })]
+                    ),
+                    _vm._v(" "),
+                    _c("h4", {
+                      staticClass: "text-muted mx-sm-5",
+                      domProps: { textContent: _vm._s(_vm.ubicacion) }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-success",
+                        attrs: { type: "button", "data-toggle": "modal" },
+                        on: { click: _vm.agregarItem2 }
+                      },
+                      [_c("i", { staticClass: "icon-check" })]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "card-body" }, [
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Cliente")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-5" }, [
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.idClin,
+                                expression: "idClin"
+                              }
+                            ],
+                            staticClass: "col-md-9 form-control",
+                            on: {
+                              change: function($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function(o) {
+                                    return o.selected
+                                  })
+                                  .map(function(o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.idClin = $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              }
+                            }
+                          },
+                          _vm._l(_vm.arrayClientes, function(objeto) {
+                            return _c("option", {
+                              key: objeto.id,
+                              domProps: {
+                                value: objeto.id,
+                                textContent: _vm._s(objeto.nomClin)
+                              }
+                            })
+                          }),
+                          0
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group row" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-md-3 form-control-label",
+                          attrs: { for: "text-input" }
+                        },
+                        [_vm._v("Total a Pagar")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-md-3" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.totalF,
+                              expression: "totalF"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            id: "nombre",
+                            name: "nombre",
+                            placeholder: "Telefono de contacto"
+                          },
+                          domProps: { value: _vm.totalF },
                           on: {
-                            click: function($event) {
-                              return _vm.eliminarItem(_vm.id, objeto)
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.totalF = $event.target.value
                             }
                           }
-                        },
-                        [_c("i", { staticClass: "icon-trash" })]
-                      )
+                        })
+                      ])
                     ])
-                  ])
-                }),
-                0
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-dark",
-              attrs: { type: "button", "data-toggle": "modal" },
-              on: {
-                click: function($event) {
-                  return _vm.regFac()
-                }
-              }
-            },
-            [_vm._v("\n                    Guardar\n                    ")]
-          )
-        ])
+                  ]),
+                  _vm._v(" "),
+                  _c("br"),
+                  _vm._v(" "),
+                  _c(
+                    "table",
+                    {
+                      staticClass: "table table-bordered table-striped table-sm"
+                    },
+                    [
+                      _vm._m(1),
+                      _vm._v(" "),
+                      _c(
+                        "tbody",
+                        _vm._l(_vm.arrayDatos, function(objeto) {
+                          return _c("tr", { key: objeto.id }, [
+                            _c("td", {
+                              domProps: { textContent: _vm._s(objeto.idPedi) }
+                            }),
+                            _vm._v(" "),
+                            _c("td", {
+                              domProps: {
+                                textContent: _vm._s(objeto.ubicacion)
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("td", {
+                              domProps: { textContent: _vm._s(objeto.telefono) }
+                            }),
+                            _vm._v(" "),
+                            _c("td", {
+                              domProps: { textContent: _vm._s(objeto.estado) }
+                            }),
+                            _vm._v(" "),
+                            _c("td", [
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-danger btn-sm",
+                                  attrs: {
+                                    type: "button",
+                                    "data-toggle": "modal"
+                                  },
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.eliminarItem(_vm.id, objeto)
+                                    }
+                                  }
+                                },
+                                [_c("i", { staticClass: "icon-trash" })]
+                              )
+                            ])
+                          ])
+                        }),
+                        0
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-dark",
+                      attrs: { type: "button", "data-toggle": "modal" },
+                      on: {
+                        click: function($event) {
+                          return _vm.regFac()
+                        }
+                      }
+                    },
+                    [
+                      _vm._v(
+                        "\n                    Guardar\n                    "
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-light",
+                      attrs: { type: "button", "data-toggle": "modal" },
+                      on: {
+                        click: function($event) {
+                          return _vm.ocultar()
+                        }
+                      }
+                    },
+                    [
+                      _vm._v(
+                        "\n                    Atras\n                    "
+                      )
+                    ]
+                  )
+                ]
+              : [
+                  _c(
+                    "table",
+                    {
+                      staticClass: "table table-bordered table-striped table-sm"
+                    },
+                    [
+                      _vm._m(2),
+                      _vm._v(" "),
+                      _c(
+                        "tbody",
+                        _vm._l(_vm.arrayMaster, function(objeto) {
+                          return _c("tr", { key: objeto.id }, [
+                            _c("td", {
+                              domProps: { textContent: _vm._s(objeto.id) }
+                            }),
+                            _vm._v(" "),
+                            _c("td", {
+                              domProps: { textContent: _vm._s(objeto.nomClin) }
+                            }),
+                            _vm._v(" "),
+                            _c("td", {
+                              domProps: { textContent: _vm._s(objeto.fecha) }
+                            }),
+                            _vm._v(" "),
+                            _c("td", {
+                              domProps: { textContent: _vm._s(objeto.total) }
+                            }),
+                            _vm._v(" "),
+                            _c("td", [
+                              _c(
+                                "button",
+                                {
+                                  staticClass: "btn btn-success btn-sm",
+                                  attrs: {
+                                    type: "button",
+                                    "data-toggle": "modal"
+                                  },
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.mostrar(objeto)
+                                    }
+                                  }
+                                },
+                                [_c("i", { staticClass: "icon-eye" })]
+                              )
+                            ])
+                          ])
+                        }),
+                        0
+                      )
+                    ]
+                  )
+                ]
+          ],
+          2
+        )
       ])
     ]),
     _vm._v(" "),
@@ -59099,7 +59747,7 @@ var render = function() {
                     "table",
                     { staticClass: "table table-bordered table-striped" },
                     [
-                      _vm._m(2),
+                      _vm._m(3),
                       _vm._v(" "),
                       _c(
                         "tbody",
@@ -59270,6 +59918,24 @@ var staticRenderFns = [
         _c("th", [_vm._v("Telefono")]),
         _vm._v(" "),
         _c("th", [_vm._v("Estado")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Opciones")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", { staticClass: "thead-dark" }, [
+      _c("tr", [
+        _c("th", [_vm._v("#F")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Cliente")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Fecha")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Total")]),
         _vm._v(" "),
         _c("th", [_vm._v("Opciones")])
       ])

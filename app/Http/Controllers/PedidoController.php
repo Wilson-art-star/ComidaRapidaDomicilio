@@ -14,11 +14,10 @@ class PedidoController extends Controller
         $buscar=$request->buscar;
      
 
-        if ($buscar=='') {
-            $pedidos= Pedidos::orderBy('id_empleado','asc')->paginate(4);
-        }else{
-            $pedidos= Pedidos::where('nomCom','like', '%'.$buscar.'%')->orderBy('nomCom','asc')->paginate(4);
-        }
+            $pedidos= Pedidos::join('empleados','pedidos.id_empleado','=','empleados.id')
+            ->select('pedidos.id','pedidos.telefono','ubicacion','estado','empleados.nomCom','empleados.id as idEmple')
+            ->orderBy('id','asc')->paginate(4);
+       
 
        
         return [

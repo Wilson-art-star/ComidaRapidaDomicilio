@@ -11,14 +11,17 @@
                 <div class="card">
                     <div class="card-header">
                         <i class="fa fa-user-o"></i> Facturas
-                        <button type="button" class="btn btn-secondary" data-toggle="modal" @click="abrirModal('guardar')">
+                        <button type="button" class="btn btn-secondary" data-toggle="modal" @click="mostrar()">
                             <i class="icon-plus"></i>&nbsp;Nuevo
                         </button>
                     </div>
 
                     <div class="card-body">
                        
-                       <div class="form-group form-inline">
+                       <!-- //////////////////////////////////////////////////////////////////////////////////// -->
+                       <template v-if="view">
+
+                        <div class="form-group form-inline">
                             <input v-model="buscar" class="form-control col-3" placeholder="Ingrese la ubicación o su codigo" type="text" @keyup.enter="getPedi(buscar)">
                             <button class="btn btn-dark" @click="abrirModal"><i class="fa fa-search"></i></button>
                             <h4 class="text-muted mx-sm-5" v-text="ubicacion"></h4>
@@ -62,7 +65,7 @@
                             <tbody>
 
                                 <tr v-for="objeto in arrayDatos" :key="objeto.id">
-                                    <td v-text="objeto.id"></td>
+                                    <td v-text="objeto.idPedi"></td>
                                     <td v-text="objeto.ubicacion"></td>
                                     <td v-text="objeto.telefono"></td>
                                     <td v-text="objeto.estado"></td>
@@ -82,6 +85,51 @@
                         <button type="button" class="btn btn-dark" data-toggle="modal" @click="regFac()">
                         Guardar
                         </button>
+                        
+                         <button type="button" class="btn btn-light" data-toggle="modal" @click="ocultar()">
+                        Atras
+                        </button>      
+                           
+                       </template>
+                       
+                       <!-- //////////////////////////////////////////////////////////////////////////////////// -->
+
+                       <!-- //////////////////////////////////////////////////////////////////////////////////// -->
+
+                        <template v-else>
+                        <table class="table table-bordered table-striped table-sm">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>#F</th>
+                                    <th>Cliente</th>
+                                    <th>Fecha</th>
+                                    <th>Total</th>
+                                
+                                    <th>Opciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr v-for="objeto in arrayMaster" :key="objeto.id">
+                                    <td v-text="objeto.id"></td>
+                                    <td v-text="objeto.nomClin"></td>
+                                    <td v-text="objeto.fecha"></td>
+                                    <td v-text="objeto.total"></td>
+                                    <td>
+                                        <button type="button" class="btn btn-success btn-sm" data-toggle="modal" @click="mostrar(objeto)">
+                                          <i class="icon-eye"></i>
+                                        </button>
+                                    </td>
+                                    
+                                </tr>
+
+                            </tbody>
+                        </table>
+                            
+                        
+                    </template>
+
+                       <!-- //////////////////////////////////////////////////////////////////////////////////// -->
                         
                     </div>
                 </div>
@@ -200,7 +248,11 @@ export default {
             
             ///////////////////
 
-
+            ///////////////////
+            arrayMaster:[],
+            view:0,
+            idFactura:0,
+            ///////////////////
            
 
             ////////////////
@@ -249,6 +301,37 @@ export default {
                     console.log(error);
                 });
         },
+
+        /////////////////////////////////////////////////////////////////////(LISTAR DATOS)
+
+        listDatos(page){
+            let me = this;
+                var url="/factura?page="+ page + '&buscar=' + this.idFactura;
+                axios.get(url)
+                .then(function(response){
+                    var respuesta = response.data;
+                    me.arrayMaster = respuesta.facturas.data;
+                    me.pagination=respuesta.pagination;
+                })
+                .catch(function(error){
+                    console.log(error);
+                });
+        },
+
+
+        listDetDatos(page){
+            let me = this;
+                var url="/detfactura?page="+ page + '&buscar=' + this.idFactura;
+                axios.get(url)
+                .then(function(response){
+                    var respuesta = response.data;
+                    me.arrayDatos = respuesta.facturas.data;
+                    me.pagination=respuesta.pagination;
+                })
+                .catch(function(error){
+                    console.log(error);
+                });
+        },
 ///////////////////////////////////////(Buscar por medio de la barra de buscar)
         getPedi(buscar){
             let me = this;
@@ -286,6 +369,24 @@ export default {
                 me.arrayClientes= respuesta.cli;
             })
         },
+
+         /////////////////////////////////////////////////////////////
+
+        mostrar(data=[]){
+            this.view=1;
+            this.idClin=data['idClin'];
+            this.totalF=data['total'];
+            this.idFactura=data['id'];
+            this.idPedi=data['idPedi']
+             this.listDetDatos(1,"");
+            
+        },
+
+        ocultar(){
+            this.view=0;
+        },
+
+        /////////////////////////////////////////////////////////////
         /////////////////////////////////////////////////////////////
         
         agregarItem(data=[]){
@@ -310,8 +411,8 @@ export default {
                     data:me.arrayDatos
                     
                 }).then(function(response){
-                    //me.listCar(1, me.criterio, me.buscar);
-                    alert('Se guardo correctamente');
+                   
+                    me.mensaje();
                    
                 })
                 .catch(function(error){
@@ -322,12 +423,22 @@ export default {
         /////////////////////////////////////
         abrirModal(){
             this.modal=1;
-            this.titulo="Seleccione el pedido";
+            this.titulo="Seleccione el Pedido";
         },
 
         cerrarModal(){
             this.modal=0;
             this.titulo="";
+        },
+
+        mensaje(){
+            Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Se guardo correctamente',
+            showConfirmButton: false,
+            timer: 1500
+            })
         }
     },
 
@@ -372,7 +483,8 @@ export default {
       
         },
     mounted() {
-        this.listPedi(1,this.buscar);
+       
+        this.listDatos();
         this.getCli();
     },
 }

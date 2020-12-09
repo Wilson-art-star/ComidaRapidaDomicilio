@@ -211,7 +211,7 @@
                     
                 }).then(function(response){
                     me.listTipIns(1, me.criterio, me.buscar);
-                    alert('Se guardo correctamente');
+                    me.mensajeRegistro();
                     me.cerrarModal();
                 })
                 .catch(function(error){
@@ -230,7 +230,7 @@
                 })
                 .then(function(response){
                     me.listTipIns(1, me.criterio, me.buscar);
-                    alert('Se actualizo correctamente');
+                    me.mensajeActualizar();
                     me.cerrarModal();
                 })
                 .catch(function(error){
@@ -247,7 +247,7 @@
                 })
                 .then(function(response){
                     me.listTipIns(1, me.criterio, me.buscar);
-                    alert('Se elimino correctamente');
+                    me.mesnajeEliminar();
                     
                 })
                 .catch(function(error){
@@ -260,13 +260,13 @@
             abrirModal(accion,data=[]){
                 switch (accion) {
                     case 'guardar':
-                        this.titulo='Registrar tipo de insumo'
+                        this.titulo='Registrar Tipo de insumo'
                         this.accion=0;
                         this.limpiar();
                         break;
 
                     case 'editar':
-                        this.titulo='Editar datos del tipo de insumo'
+                        this.titulo='Editar datos del Tipo de insumo'
                         this.accion=1;
                         this.idTip= data['id'];
                         this.nombre= data['nombre'];
@@ -286,6 +286,46 @@
                 this.nombre='';
                 
 
+            },
+
+            mensajeRegistro(){
+            Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Se guardo correctamente',
+            showConfirmButton: false,
+            timer: 1500
+            })
+            },
+
+            mensajeActualizar(){
+            Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Se actualizo correctamente',
+            showConfirmButton: false,
+            timer: 1500
+            })
+            },
+
+            mesnajeEliminar(){
+            Swal.fire({
+            title: 'Esta Seguro?',
+            text: "La accion sera irreversible!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#FF8B00',
+            confirmButtonText: 'Eliminar'
+            }).then((result) => {
+            if (result.isConfirmed) {
+            Swal.fire(
+            'Eliminado!',
+            'Fue eliminado correctamente.',
+            'success'
+             )
+             }
+             })
             }
         },
 

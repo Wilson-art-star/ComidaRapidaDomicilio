@@ -12,7 +12,9 @@
     <link rel="shortcut icon" href="img/9.png">
     <title>Comida Rapida a Domicilios</title>
     <!-- Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
     <link href="css/plantilla.css" rel="stylesheet">  
 </head>
 
@@ -57,27 +59,41 @@
                     </a>
                 </div>
             </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                    <img src="img/avatars/Logo.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
-                    <span class="d-md-down-none">Boss</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <div class="dropdown-header text-center">
-                        <strong>Cuenta</strong>
-                    </div>
-                    <a class="dropdown-item" href="#"><i class="fa fa-user"></i> Perfil</a>
-                    <a class="dropdown-item" href="#"><i class="fa fa-lock"></i> Cerrar sesión</a>
-                </div>
-            </li>
         </ul>
+        <ul class="nav navbar-nav ml-auto">
+       <li class="nav-item dropdown">
+       <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" role="button" href="#" aria-haspopup="true" aria-expanded="false">
+       <img src="img/avatars/Logo.jpg" class="img-avatar" alt="">
+       <span>{{Auth::user()->name}}</span>
+       </a>
+       
+       <div class="dropdown-menu dropdown-menu-right">
+          <div class="dropdown-header">
+          <strong>Cuenta</strong>
+          
+          <div>
+          <a class="dropdown-item" href="#"><i class="fa fa-user"></i> Perfil</a>
+          <a class="dropdown-item"  href="{{route('logout')}}"
+          onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+          ><i class="fa fa-lock"></i> Cerrar Sesión</a>
+
+          <form id="logout-form" action="{{route('logout')}}" method="POST" style="display:none">
+          {{csrf_field()}}
+          </form>
+          </div>
+          
+          </div>
+       
+       </div>
+    </li>
+    </ul>
+
     </header>
 
     <div class="app-body">
 
 
     @if(Auth::check())
-
     @include('plantilla.sidebar')
     
     @endif

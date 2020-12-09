@@ -22,6 +22,7 @@ route::get('plantilla', function () {
 
 Route::get('/','Auth\LoginController@mostrarlogin');
 Route::post('/login','Auth\LoginController@login')->name('login');
+Route::post('/logout','Auth\LoginController@logout')->name('logout');
 
 ////////////////// TABLAS MAESTRAS ////////////////////////
 
@@ -88,10 +89,15 @@ Route::get('getpedi','PedidoController@getPedi');
 Route::get('pedido','PedidoController@index');
 Route::post('/pedido/registrar','PedidoController@store');
 
+/////////////////////////////////////////////////////////(DETALLES PEDIDOS)
+Route::get('detpedido','DetallePedidosController@index');
 
 /////////////////////////////////////////////////////(FACTURAS)
 Route::get('factura','FacturaController@index');
 Route::post('/factura/registrar','FacturaController@store');
+
+/////////////////////////////////////////////////////////(DETALLES PEDIDOS)
+Route::get('detfactura','DetalleFacturasController@index');
 
 
 

@@ -249,7 +249,7 @@
                     correo : this.correo
                 }).then(function(response){
                     me.listClin(1, me.criterio, me.buscar);
-                    alert('Se guardo correctamente');
+                    me.mensajeRegistro();
                     me.cerrarModal();
                 })
                 .catch(function(error){
@@ -272,7 +272,7 @@
                 })
                 .then(function(response){
                     me.listClin(1, me.criterio, me.buscar);
-                    alert('Se actualizo correctamente');
+                    me.mensajeActualizar();
                     me.cerrarModal();
                 })
                 .catch(function(error){
@@ -289,7 +289,7 @@
                 })
                 .then(function(response){
                     me.listClin(1, me.criterio, me.buscar);
-                    alert('Se elimino correctamente');
+                     me.mesnajeEliminar();
                     
                 })
                 .catch(function(error){
@@ -334,6 +334,46 @@
                 this.telefono='';
                 this.correo='';
 
+            },
+            
+            mensajeRegistro(){
+            Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Se guardo correctamente',
+            showConfirmButton: false,
+            timer: 1500
+            })
+            },
+
+            mensajeActualizar(){
+            Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Se actualizo correctamente',
+            showConfirmButton: false,
+            timer: 1500
+            })
+            },
+
+            mesnajeEliminar(){
+            Swal.fire({
+            title: 'Esta Seguro?',
+            text: "La accion sera irreversible!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#FF8B00',
+            confirmButtonText: 'Eliminar'
+            }).then((result) => {
+            if (result.isConfirmed) {
+            Swal.fire(
+            'Eliminado!',
+            'Fue eliminado correctamente.',
+            'success'
+             )
+             }
+             })
             }
         },
 

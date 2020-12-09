@@ -14,11 +14,10 @@ class FacturaController extends Controller
         $buscar=$request->buscar;
      
 
-        if ($buscar=='') {
-            $facturas= Facturas::orderBy('id_cliente','asc')->paginate(4);
-        }else{
-            $facturas= Facturas::where('ubicacion','like', '%'.$buscar.'%')->orderBy('ubicacion','asc')->paginate(4);
-        }
+            $facturas= Facturas::join('clientes','facturas.id_cliente','=','clientes.id')
+            ->select('facturas.id','fecha','total','clientes.nomClin','clientes.id as idClin')
+            ->orderBy('id','asc')->paginate(4);
+      
 
        
         return [
