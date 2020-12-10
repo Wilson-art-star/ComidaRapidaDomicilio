@@ -72,6 +72,7 @@
                         <table class="table table-bordered table-striped table-sm">
                             <thead class="thead-dark">
                                 <tr>
+                                    <th>Id Producto</th>
                                     <th>Nombre del Producto</th>
                                     <th>Valor por Unidad</th>
                                     <th>Cantidad</th>
@@ -81,9 +82,10 @@
                             <tbody>
 
                                 <tr v-for="objeto in arrayDatos" :key="objeto.id">
+                                    <td v-text="objeto.idProduc"></td>
                                     <td v-text="objeto.nomProducto"></td>
-                                    <td v-text="objeto.precio"></td>
                                     <td v-text="objeto.cantidad"></td>
+                                     <td v-text="objeto.precio"></td>
                                     <td>
                                         <button type="button" class="btn btn-danger btn-sm" @click="eliminarItem(id,objeto)" data-toggle="modal">
                                           <i class="icon-trash"></i>
@@ -133,9 +135,25 @@
                                     <td v-text="objeto.nomCom"></td>
                                     <td v-text="objeto.ubicacion"></td>
                                     <td v-text="objeto.telefono"></td>
-                                    <td v-text="objeto.estado"></td>
                                     <td>
-                                        <button type="button" class="btn btn-success btn-sm" data-toggle="modal" @click="mostrar(objeto)">
+                                        <template v-if="objeto.estado=='Listo'">
+                                           <span class="badge badge-success">Listo</span>
+                                        </template>
+                                        <template v-else>
+
+
+                                        <template v-if="objeto.estado=='Pendiente'">
+                                         <span class="badge badge-warning">Pendiente</span>
+                                        </template>
+
+                                        <template v-else>
+                                            <span class="badge badge-danger">Anulado</span>
+                                        </template>
+
+                                        </template>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-dark btn-sm" data-toggle="modal" @click="mostrar(objeto)">
                                           <i class="icon-eye"></i>
                                         </button>
                                     </td>
@@ -414,7 +432,7 @@ export default {
         },
 
         agregarItem2(){
-            this.arrayDatos.push({id:this.idProduc,nomProducto:this.nomProducto,precio:this.valor,cantidad:this.cantidad});
+            this.arrayDatos.push({idProduc:this.idProduc,nomProducto:this.nomProducto,precio:this.valor,cantidad:this.cantidad});
         },
 
         eliminarItem(data=[]){

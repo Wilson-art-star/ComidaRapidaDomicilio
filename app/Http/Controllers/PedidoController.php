@@ -16,7 +16,7 @@ class PedidoController extends Controller
 
             $pedidos= Pedidos::join('empleados','pedidos.id_empleado','=','empleados.id')
             ->select('pedidos.id','pedidos.telefono','ubicacion','estado','empleados.nomCom','empleados.id as idEmple')
-            ->orderBy('id','asc')->paginate(4);
+            ->orderBy('id','asc')->paginate(20);
        
 
        
@@ -42,11 +42,11 @@ class PedidoController extends Controller
 
         if ($buscar=='') {
             $pedidos= Pedidos::select('pedidos.id','pedidos.ubicacion','pedidos.telefono','pedidos.estado')
-            ->orderBy('id','asc')->paginate(4);
+            ->orderBy('id','asc')->paginate(20);
         }else{
             $pedidos= Pedidos::select('pedidos.id','pedidos.ubicacion','pedidos.telefono','pedidos.estado')
             ->where('id','like', '%'.$buscar.'%')
-            ->orderBy('id','asc')->paginate(4);
+            ->orderBy('id','asc')->paginate(20);
         }
 
        
@@ -103,9 +103,9 @@ class PedidoController extends Controller
             foreach ($detallesP as $key => $detP) {
                 $detalle= new DetallePedidos();
                 $detalle->id_pedido= $pedidos->id;
-                $detalle->id_producto= $detP['id'];
+                $detalle->id_producto= $detP['idProduc'];
                 $detalle->cantidad= $detP['cantidad'];
-                $detalle->precio= $detP['valor'];
+                $detalle->precio= $detP['precio'];
                 $detalle->save();
 
             

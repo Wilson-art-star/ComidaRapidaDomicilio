@@ -14,7 +14,7 @@ class DetallePedidosController extends Controller
 
         $pedidos= DetallePedidos::join('pedidos','detalle_pedidos.id_pedido','=','pedidos.id')
         ->join('productos','detalle_pedidos.id_producto','=','productos.id')
-        ->select('detalle_pedidos.id_pedido','productos.nombre as nomProducto','detalle_pedidos.cantidad','detalle_pedidos.precio')
+        ->select('detalle_pedidos.id_pedido','detalle_pedidos.id_producto as idProduc','productos.nombre as nomProducto','detalle_pedidos.cantidad','detalle_pedidos.precio')
         ->where('detalle_pedidos.id_pedido','=', $buscar)
         ->orderBy('detalle_pedidos.id_producto','asc')->paginate(4);
        

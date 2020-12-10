@@ -57683,6 +57683,30 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -57834,7 +57858,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.arrayDatos.push({ id: data['id'], nombre: data['nombre'], valor: data['valor'], cantidad: this.cantidad });
         },
         agregarItem2: function agregarItem2() {
-            this.arrayDatos.push({ id: this.idProduc, nomProducto: this.nomProducto, precio: this.valor, cantidad: this.cantidad });
+            this.arrayDatos.push({ idProduc: this.idProduc, nomProducto: this.nomProducto, precio: this.valor, cantidad: this.cantidad });
         },
         eliminarItem: function eliminarItem() {
             var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
@@ -57883,6 +57907,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     computed: {
 
+        total: function total() {
+            var total = 0;
+            for (var i = 0; i < this.arrayDatos.length; i++) {
+                total = total + parseInt(this.arrayDatos[i].precio * this.arrayDatos[i].cantidad);
+            }
+            return total;
+        },
         isActived: function isActived() {
             return this.pagination.current_page;
         },
@@ -58247,43 +58278,71 @@ var render = function() {
                       _vm._v(" "),
                       _c(
                         "tbody",
-                        _vm._l(_vm.arrayDatos, function(objeto) {
-                          return _c("tr", { key: objeto.id }, [
-                            _c("td", {
-                              domProps: {
-                                textContent: _vm._s(objeto.nomProducto)
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("td", {
-                              domProps: { textContent: _vm._s(objeto.precio) }
-                            }),
-                            _vm._v(" "),
-                            _c("td", {
-                              domProps: { textContent: _vm._s(objeto.cantidad) }
-                            }),
-                            _vm._v(" "),
-                            _c("td", [
-                              _c(
-                                "button",
-                                {
-                                  staticClass: "btn btn-danger btn-sm",
-                                  attrs: {
-                                    type: "button",
-                                    "data-toggle": "modal"
-                                  },
-                                  on: {
-                                    click: function($event) {
-                                      return _vm.eliminarItem(_vm.id, objeto)
+                        [
+                          _vm._l(_vm.arrayDatos, function(objeto) {
+                            return _c("tr", { key: objeto.id }, [
+                              _c("td", {
+                                domProps: {
+                                  textContent: _vm._s(objeto.idProduc)
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("td", {
+                                domProps: {
+                                  textContent: _vm._s(objeto.nomProducto)
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("td", {
+                                domProps: {
+                                  textContent: _vm._s(objeto.cantidad)
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("td", {
+                                domProps: { textContent: _vm._s(objeto.precio) }
+                              }),
+                              _vm._v(" "),
+                              _c("td", [
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass: "btn btn-danger btn-sm",
+                                    attrs: {
+                                      type: "button",
+                                      "data-toggle": "modal"
+                                    },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.eliminarItem(_vm.id, objeto)
+                                      }
                                     }
-                                  }
-                                },
-                                [_c("i", { staticClass: "icon-trash" })]
-                              )
+                                  },
+                                  [_c("i", { staticClass: "icon-trash" })]
+                                )
+                              ])
                             ])
-                          ])
-                        }),
-                        0
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "tr",
+                            { staticStyle: { "background-color": "beige" } },
+                            [
+                              _c(
+                                "td",
+                                { attrs: { colspan: "3", align: "center" } },
+                                [
+                                  _vm._v(
+                                    "\n                             Total del Pedido\n                            "
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c("td", [_vm._v(_vm._s(_vm.total))])
+                            ]
+                          )
+                        ],
+                        2
                       )
                     ]
                   ),
@@ -58355,15 +58414,49 @@ var render = function() {
                               domProps: { textContent: _vm._s(objeto.telefono) }
                             }),
                             _vm._v(" "),
-                            _c("td", {
-                              domProps: { textContent: _vm._s(objeto.estado) }
-                            }),
+                            _c(
+                              "td",
+                              [
+                                objeto.estado == "Listo"
+                                  ? [
+                                      _c(
+                                        "span",
+                                        { staticClass: "badge badge-success" },
+                                        [_vm._v("Listo")]
+                                      )
+                                    ]
+                                  : [
+                                      objeto.estado == "Pendiente"
+                                        ? [
+                                            _c(
+                                              "span",
+                                              {
+                                                staticClass:
+                                                  "badge badge-warning"
+                                              },
+                                              [_vm._v("Pendiente")]
+                                            )
+                                          ]
+                                        : [
+                                            _c(
+                                              "span",
+                                              {
+                                                staticClass:
+                                                  "badge badge-danger"
+                                              },
+                                              [_vm._v("Anulado")]
+                                            )
+                                          ]
+                                    ]
+                              ],
+                              2
+                            ),
                             _vm._v(" "),
                             _c("td", [
                               _c(
                                 "button",
                                 {
-                                  staticClass: "btn btn-success btn-sm",
+                                  staticClass: "btn btn-dark btn-sm",
                                   attrs: {
                                     type: "button",
                                     "data-toggle": "modal"
@@ -58670,6 +58763,8 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", { staticClass: "thead-dark" }, [
       _c("tr", [
+        _c("th", [_vm._v("Id Producto")]),
+        _vm._v(" "),
         _c("th", [_vm._v("Nombre del Producto")]),
         _vm._v(" "),
         _c("th", [_vm._v("Valor por Unidad")]),
@@ -58821,6 +58916,21 @@ exports.push([module.i, "\n.modal-content{\r\n    width: 100% !important;\r\n   
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -59203,7 +59313,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.arrayDatos.push({ id: data['id'], ubicacion: data['ubicacion'], telefono: data['telefono'], estado: data['estado'] });
         },
         agregarItem2: function agregarItem2() {
-            this.arrayDatos.push({ id: this.idPedi, ubicacion: this.ubicacion, telefono: this.telefono, estado: this.estado });
+            this.arrayDatos.push({ idPedi: this.idPedi, ubicacion: this.ubicacion, telefono: this.telefono, estado: this.estado });
         },
         eliminarItem: function eliminarItem() {
             var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
@@ -59478,7 +59588,7 @@ var render = function() {
                             type: "text",
                             id: "nombre",
                             name: "nombre",
-                            placeholder: "Telefono de contacto"
+                            placeholder: "Precio Total"
                           },
                           domProps: { value: _vm.totalF },
                           on: {
@@ -59522,9 +59632,43 @@ var render = function() {
                               domProps: { textContent: _vm._s(objeto.telefono) }
                             }),
                             _vm._v(" "),
-                            _c("td", {
-                              domProps: { textContent: _vm._s(objeto.estado) }
-                            }),
+                            _c(
+                              "td",
+                              [
+                                objeto.estado == "Listo"
+                                  ? [
+                                      _c(
+                                        "span",
+                                        { staticClass: "badge badge-success" },
+                                        [_vm._v("Listo")]
+                                      )
+                                    ]
+                                  : [
+                                      objeto.estado == "Pendiente"
+                                        ? [
+                                            _c(
+                                              "span",
+                                              {
+                                                staticClass:
+                                                  "badge badge-warning"
+                                              },
+                                              [_vm._v("Pendiente")]
+                                            )
+                                          ]
+                                        : [
+                                            _c(
+                                              "span",
+                                              {
+                                                staticClass:
+                                                  "badge badge-danger"
+                                              },
+                                              [_vm._v("Anulado")]
+                                            )
+                                          ]
+                                    ]
+                              ],
+                              2
+                            ),
                             _vm._v(" "),
                             _c("td", [
                               _c(
@@ -59620,7 +59764,7 @@ var render = function() {
                               _c(
                                 "button",
                                 {
-                                  staticClass: "btn btn-success btn-sm",
+                                  staticClass: "btn btn-dark btn-sm",
                                   attrs: {
                                     type: "button",
                                     "data-toggle": "modal"

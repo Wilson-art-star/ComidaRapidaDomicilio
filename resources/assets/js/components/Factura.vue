@@ -43,7 +43,7 @@
                         <div class="form-group row">
                             <label class="col-md-3 form-control-label" for="text-input">Total a Pagar</label>
                             <div class="col-md-3">
-                            <input v-model="totalF" type="text"  id="nombre" name="nombre" class="form-control" placeholder="Telefono de contacto">
+                            <input v-model="totalF" type="text"  id="nombre" name="nombre" class="form-control" placeholder="Precio Total">
                             </div>
                         </div>
 
@@ -68,7 +68,23 @@
                                     <td v-text="objeto.idPedi"></td>
                                     <td v-text="objeto.ubicacion"></td>
                                     <td v-text="objeto.telefono"></td>
-                                    <td v-text="objeto.estado"></td>
+                                    <td>
+                                         <template v-if="objeto.estado=='Listo'">
+                                           <span class="badge badge-success">Listo</span>
+                                        </template>
+                                        <template v-else>
+
+
+                                        <template v-if="objeto.estado=='Pendiente'">
+                                         <span class="badge badge-warning">Pendiente</span>
+                                        </template>
+
+                                        <template v-else>
+                                            <span class="badge badge-danger">Anulado</span>
+                                        </template>
+
+                                        </template>
+                                    </td>
                                     <td>
                                         <button type="button" class="btn btn-danger btn-sm" @click="eliminarItem(id,objeto)" data-toggle="modal">
                                           <i class="icon-trash"></i>
@@ -104,7 +120,6 @@
                                     <th>Cliente</th>
                                     <th>Fecha</th>
                                     <th>Total</th>
-                                
                                     <th>Opciones</th>
                                 </tr>
                             </thead>
@@ -116,7 +131,7 @@
                                     <td v-text="objeto.fecha"></td>
                                     <td v-text="objeto.total"></td>
                                     <td>
-                                        <button type="button" class="btn btn-success btn-sm" data-toggle="modal" @click="mostrar(objeto)">
+                                        <button type="button" class="btn btn-dark btn-sm" data-toggle="modal" @click="mostrar(objeto)">
                                           <i class="icon-eye"></i>
                                         </button>
                                     </td>
@@ -395,7 +410,7 @@ export default {
         },
 
         agregarItem2(){
-            this.arrayDatos.push({id:this.idPedi,ubicacion:this.ubicacion,telefono:this.telefono,estado:this.estado});
+            this.arrayDatos.push({idPedi:this.idPedi,ubicacion:this.ubicacion,telefono:this.telefono,estado:this.estado});
         },
 
         eliminarItem(data=[]){

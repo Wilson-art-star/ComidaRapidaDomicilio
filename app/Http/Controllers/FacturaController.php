@@ -16,7 +16,7 @@ class FacturaController extends Controller
 
             $facturas= Facturas::join('clientes','facturas.id_cliente','=','clientes.id')
             ->select('facturas.id','fecha','total','clientes.nomClin','clientes.id as idClin')
-            ->orderBy('id','asc')->paginate(4);
+            ->orderBy('id','asc')->paginate(20);
       
 
        
@@ -48,7 +48,7 @@ class FacturaController extends Controller
             foreach ($detallesF as $key => $detF) {
                 $detalle= new DetalleFacturas();
                 $detalle->id_factura= $facturas->id;
-                $detalle->id_pedido= $detF['id'];
+                $detalle->id_pedido= $detF['idPedi'];
                 $detalle->save();
 
             
